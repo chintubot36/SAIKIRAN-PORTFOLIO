@@ -69,6 +69,7 @@
             display: flex;
             gap: 2rem;
             list-style: none;
+            align-items: center;
         }
 
         .nav-links a {
@@ -95,6 +96,44 @@
 
         .nav-links a:hover::after {
             width: 100%;
+        }
+
+        .nav-resume-btn {
+            padding: 8px 20px;
+            border-radius: 50px;
+            border: 2px solid var(--accent-cyan);
+            color: var(--accent-cyan) !important;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-resume-btn:hover {
+            background: var(--accent-cyan);
+            color: var(--primary-dark) !important;
+        }
+
+        .nav-resume-btn::after {
+            display: none;
+        }
+
+        .nav-leetcode-btn {
+            padding: 8px 20px;
+            border-radius: 50px;
+            border: 2px solid var(--accent-orange);
+            color: var(--accent-orange) !important;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-leetcode-btn:hover {
+            background: var(--accent-orange);
+            color: var(--primary-dark) !important;
+        }
+
+        .nav-leetcode-btn::after {
+            display: none;
         }
 
         @media (max-width: 768px) {
@@ -268,6 +307,18 @@
 
         .btn-secondary:hover {
             background: var(--accent-cyan);
+            color: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+
+        .btn-tertiary {
+            border: 2px solid var(--accent-orange);
+            color: var(--accent-orange);
+            background: transparent;
+        }
+
+        .btn-tertiary:hover {
+            background: var(--accent-orange);
             color: var(--primary-dark);
             transform: translateY(-3px);
         }
@@ -694,6 +745,52 @@
             margin-right: 0.5rem;
         }
 
+        /* LeetCode stats card */
+        .leetcode-card {
+            background: var(--secondary-dark);
+            border-radius: 10px;
+            padding: 2rem;
+            margin-top: 2rem;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+        }
+
+        .leetcode-card .lc-info h4 {
+            color: var(--accent-orange);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .leetcode-card .lc-info p {
+            color: var(--text-secondary);
+        }
+
+        .lc-stats {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .lc-stat {
+            text-align: center;
+        }
+
+        .lc-stat .lc-num {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .lc-stat .lc-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
 
         ::-webkit-scrollbar {
             width: 10px;
@@ -725,6 +822,8 @@
             <li><a href="#experience">Experience</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
+            <li><a href="https://leetcode.com/u/kiran_sai45/" target="_blank" rel="noopener" class="nav-leetcode-btn"> 🧩  LeetCode</a></li>
+            <li><a href="https://drive.google.com/file/d/1K2aEQDKCuUyfh6nTs-jJOvs-PhdVsQtH/view?usp=sharing" target="_blank" rel="noopener" class="nav-resume-btn">Resume</a></li>
         </ul>
     </nav>
 
@@ -738,6 +837,7 @@
                 <div class="cta-buttons">
                     <a href="#projects" class="btn btn-primary">View My Work</a>
                     <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+        
                 </div>
             </div>
             <div class="hero-image">
@@ -826,6 +926,28 @@
                 </div>
             </div>
         </div>
+
+        <div class="leetcode-card">
+            <div class="lc-info">
+                <h4>🧩 LeetCode Profile</h4>
+                <p>Practicing DSA and problem solving — <a href="https://leetcode.com/u/kiran_sai45/" target="_blank" rel="noopener" style="color: var(--accent-cyan);">@kiran_sai45</a></p>
+            </div>
+            <div class="lc-stats">
+                <div class="lc-stat">
+                    <div class="lc-num">120</div>
+                    <div class="lc-label">Solved</div>
+                </div>
+                <div class="lc-stat">
+                    <div class="lc-num">48</div>
+                    <div class="lc-label">Active Days</div>
+                </div>
+                <div class="lc-stat">
+                    <div class="lc-num">9</div>
+                    <div class="lc-label">Max Streak</div>
+                </div>
+            </div>
+            <a href="https://leetcode.com/u/kiran_sai45/" target="_blank" rel="noopener" class="project-link">🔗 View Profile</a>
+        </div>
     </section>
 
     <!-- Experience Section -->
@@ -875,6 +997,7 @@
                         <span class="tech-badge">Real-time</span>
                     </div>
                     <div class="project-links">
+                        <a href="https://github.com/chintubot36/MULTITHREADED-CHAT-APPLICATION.git" target="_blank" class="project-link">🔗 View Code</a>
                         <a href="https://agent-6a4903fe75a3097--onlinereserverationsystem.netlify.app/" target="_blank" class="project-link">🌐 View Website</a>
                     </div>
                 </div>
@@ -894,6 +1017,7 @@
                         <span class="tech-badge">Stanford CoreNLP</span>
                     </div>
                     <div class="project-links">
+                        <a href="https://github.com/chintubot36/DISCOURSE-POLARITY-PREDICTION-MODEL-USING-NLP.git" target="_blank" class="project-link">🔗 View Code</a>
                         <a href="https://agent-6a49069dc4045--discoursepolarityprediction.netlify.app/" target="_blank" class="project-link">🌐 View Website</a>
                     </div>
                 </div>
@@ -1017,8 +1141,10 @@
             <p>I'm always excited to discuss new projects and opportunities. Feel free to reach out through any of the channels below.</p>
             <div class="contact-links">
                 <a href="mailto:saikirankumbam4546@gmail.com" class="contact-link">📧 Email</a>
-                <a href="https://www.linkedin.com/in/sai-kirankumbam-42b263351" class="contact-link">💼 LinkedIn</a>
+                <a href="https://www.linkedin.com/in/sai-kiran-kumbam-42b263351/" class="contact-link">💼 LinkedIn</a>
                 <a href="https://github.com/chintubot36" target="_blank" class="contact-link">🔗 GitHub</a>
+                <a href="https://leetcode.com/u/kiran_sai45/" target="_blank" rel="noopener" class="contact-link">🧩 LeetCode</a>
+                <a href="https://drive.google.com/file/d/1K2aEQDKCuUyfh6nTs-jJOvs-PhdVsQtH/view?usp=sharing" target="_blank" rel="noopener" class="contact-link">📄 Resume</a>
             </div>
             <p style="margin-top: 2rem; color: var(--text-secondary); font-size: 0.9rem;">© 2026 Sai Kiran Kumbam. All rights reserved.</p>
         </div>
