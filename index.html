@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sai Kiran Kumbam - Java Full Stack Developer</title>
+    <title>Sai Kiran Kumbam - MERN Stack Developer | Java Full Stack Developer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -833,7 +833,7 @@
             <div class="hero-text">
                 <h1>Hi, I'm <span class="highlight">Sai Kiran Kumbam</span></h1>
                 <p><span class="typing-role" id="typingRole"></span><span class="typing-cursor" id="typingCursor">&nbsp;</span></p>
-                <p>Building scalable, responsive applications with Spring Boot, React, and modern web technologies</p>
+                <p>Building scalable, responsive applications with MongoDB, Express.js, React, Node.js, Spring Boot, and modern web technologies</p>
                 <div class="cta-buttons">
                     <a href="#projects" class="btn btn-primary">View My Work</a>
                     <a href="#contact" class="btn btn-secondary">Get In Touch</a>
@@ -851,7 +851,7 @@
         <span class="eyebrow">Get to know me</span>
         <h2 class="section-title">About Me</h2>
         <div class="about">
-            <h3>Aspiring Java Full Stack Developer</h3>
+            <h3>MERN Stack Developer</h3>
             <p>I'm a motivated developer from Chennai, Tamil Nadu with hands-on experience in building responsive and scalable applications. During my internships at Eduskills Academy (AICTE) and Oasis Infobyte, I've worked on full-stack development projects applying OOP principles, exception handling, multi-threading, and real-time functionality.</p>
             <p style="margin-top: 1rem;">I'm passionate about clean code, structured design, and data-driven logic. I enjoy building end-to-end solutions — from designing intuitive UIs to managing backend logic and databases. I'm committed to continuous learning and contributing to open-source projects that create meaningful user impact.</p>
         </div>
@@ -934,15 +934,15 @@
             </div>
             <div class="lc-stats">
                 <div class="lc-stat">
-                    <div class="lc-num">120</div>
+                    <div class="lc-num" id="lcSolved">120</div>
                     <div class="lc-label">Solved</div>
                 </div>
                 <div class="lc-stat">
-                    <div class="lc-num">48</div>
+                    <div class="lc-num" id="lcActiveDays">48</div>
                     <div class="lc-label">Active Days</div>
                 </div>
                 <div class="lc-stat">
-                    <div class="lc-num">9</div>
+                    <div class="lc-num" id="lcMaxStreak">9</div>
                     <div class="lc-label">Max Streak</div>
                 </div>
             </div>
@@ -983,6 +983,51 @@
         <span class="eyebrow">Things I've built</span>
         <h2 class="section-title">Featured Projects</h2>
         <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-header">
+                    <h3 style="margin: 0; color: var(--accent-cyan);">Sai's LeetCode Tracker</h3>
+                    <span class="project-icon">🧩</span>
+                </div>
+                <div class="project-content">
+                    <p>Full-stack LeetCode progress and solution management platform that imports accepted submissions, stores solution code, and provides searchable, filterable views by difficulty and topic.</p>
+                    <div class="project-tech">
+                        <span class="tech-badge">HTML5</span>
+                        <span class="tech-badge">CSS3</span>
+                        <span class="tech-badge">JavaScript</span>
+                        <span class="tech-badge">Node.js</span>
+                        <span class="tech-badge">Express.js</span>
+                        <span class="tech-badge">REST API</span>
+                        <span class="tech-badge">Chrome Extension</span>
+                        <span class="tech-badge">JSON</span>
+                    </div>
+                    <a href="https://github.com/chintubot36/MYLEETCODE-TRACKER-USING-NODE-EXPRESS.JS-JSON-" target="_blank" rel="noopener" class="project-link">🔗 View Code</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <h3 style="margin: 0; color: var(--accent-cyan);">Shushu Compiler</h3>
+                    <span class="project-icon">⚡</span>
+                </div>
+                <div class="project-content">
+                    <p>Full-stack online code compiler that lets users write and execute Java programs from the browser. The backend compiles Java with javac, runs the program, and returns the output to the frontend.</p>
+                    <div class="project-tech">
+                        <span class="tech-badge">HTML5</span>
+                        <span class="tech-badge">CSS3</span>
+                        <span class="tech-badge">JavaScript</span>
+                        <span class="tech-badge">Node.js</span>
+                        <span class="tech-badge">Express.js</span>
+                        <span class="tech-badge">Java</span>
+                        <span class="tech-badge">Docker</span>
+                        <span class="tech-badge">Railway</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/chintubot36/Shushu-compiler-Own" target="_blank" rel="noopener" class="project-link">🔗 View Code</a>
+                        <a href="https://shushu-compiler-own-production.up.railway.app" target="_blank" rel="noopener" class="project-link">🌐 Live Demo</a>
+                    </div>
+                </div>
+            </div>
+
             <div class="project-card">
                 <div class="project-header">
                     <h3 style="margin: 0; color: var(--accent-cyan);">Multithreaded Chat Application</h3>
@@ -1158,6 +1203,46 @@
     <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
 
     <script>
+        // Live LeetCode statistics
+        async function refreshLeetCodeStats() {
+            const username = "kiran_sai45";
+
+            try {
+                const statsResponse = await fetch(
+                    `https://leetcode-stats.tashif.codes/${username}/stats`
+                );
+                const stats = await statsResponse.json();
+
+                if (stats?.data?.totalSolved != null) {
+                    document.getElementById("lcSolved").textContent =
+                        stats.data.totalSolved;
+                }
+            } catch (error) {
+                console.log("LeetCode solved count refresh failed:", error);
+            }
+
+            try {
+                const heatmapResponse = await fetch(
+                    `https://leetcode-stats.tashif.codes/${username}/heatmap`
+                );
+                const heatmap = await heatmapResponse.json();
+
+                if (heatmap?.data?.totalActiveDays != null) {
+                    document.getElementById("lcActiveDays").textContent =
+                        heatmap.data.totalActiveDays;
+                }
+
+                if (heatmap?.data?.longestStreak != null) {
+                    document.getElementById("lcMaxStreak").textContent =
+                        heatmap.data.longestStreak;
+                }
+            } catch (error) {
+                console.log("LeetCode streak refresh failed:", error);
+            }
+        }
+
+        refreshLeetCodeStats();
+
         // Scroll progress bar
         const progressBar = document.getElementById('scrollProgress');
         function updateProgress() {
